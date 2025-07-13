@@ -1,0 +1,54 @@
+name: wittly
+description: AI-powered conversation assistance app
+
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # State Management
+  provider: ^6.1.2
+  
+  # Permissions
+  permission_handler: ^11.3.1
+  
+  # HTTP & WebSocket
+  http: ^1.2.1
+  web_socket_channel: ^2.4.0
+  
+  # Audio & Speech
+  audioplayers: ^6.0.0
+  speech_to_text: ^6.6.2
+  
+  # Storage & Preferences
+  shared_preferences: ^2.2.3
+  
+  # Haptic Feedback
+  vibration: ^1.8.4
+  
+  # UI Icons
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  
+  # Add app icon and assets
+  assets:
+    - assets/images/
+    - assets/icons/
+  
+  # App icon configuration
+  # flutter_icons:
+  #   android: true
+  #   ios: true
+  #   image_path: "assets/icons/app_icon.png"
