@@ -17,10 +17,36 @@ class WittlyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => AppState(),
       child: MaterialApp(
-        title: 'Wittly',
+        title: 'Wittly - Conversation Master',
         theme: AppTheme.darkTheme,
-        home: const OnboardingScreen(), // Start with onboarding
+        home: const OnboardingScreen(),
         debugShowCheckedModeBanner: false,
+        // Add custom route transitions
+        onGenerateRoute: (settings) {
+          return PageRouteBuilder(
+            settings: settings,
+            pageBuilder: (context, animation, secondaryAnimation) {
+              switch (settings.name) {
+                case '/main':
+                  return const MainScreen();
+                case '/onboarding':
+                  return const OnboardingScreen();
+                default:
+                  return const OnboardingScreen();
+              }
+            },
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              return SlideTransition(
+                position: animation.drive(
+                  Tween(begin: const Offset(1.0, 0.0), end: Offset.zero)
+                    .chain(CurveTween(curve: Curves.easeInOut)),
+                ),
+                child: child,
+              );
+            },
+            transitionDuration: const Duration(milliseconds: 300),
+          );
+        },
       ),
     );
   }
