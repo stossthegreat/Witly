@@ -1,3 +1,4 @@
+// ===== lib/screens/onboarding_screen.dart =====
 import 'package:flutter/material.dart';
 import '../core/app_constants.dart';
 import '../core/app_modes.dart';
@@ -9,7 +10,7 @@ import 'main_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
- 
+  
   @override
   State<OnboardingScreen> createState() => _OnboardingScreenState();
 }
@@ -17,13 +18,13 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
- 
+  
   @override
   void dispose() {
     _pageController.dispose();
     super.dispose();
   }
- 
+  
   void _nextPage() {
     if (_currentPage < 3) {
       _pageController.nextPage(
@@ -34,13 +35,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       _finishOnboarding();
     }
   }
- 
+  
   void _finishOnboarding() {
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (context) => const MainScreen()),
     );
   }
- 
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,7 +80,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   }),
                 ),
               ),
-             
+              
               // Pages
               Expanded(
                 child: PageView(
@@ -95,7 +96,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ],
                 ),
               ),
-             
+              
               // Navigation buttons
               Padding(
                 padding: const EdgeInsets.all(24),
@@ -126,7 +127,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ),
     );
   }
- 
+  
   Widget _buildWelcomePage() {
     return Padding(
       padding: const EdgeInsets.all(24),
@@ -159,7 +160,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ),
           const SizedBox(height: 32),
-         
+          
           // Title
           Text(
             '🧠 Welcome to Wittly',
@@ -169,7 +170,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 16),
-         
+          
           // Description
           Text(
             'Your AI-powered conversation assistant that gives you the perfect response for any situation - dating, exams, comebacks, and power moves.',
@@ -179,7 +180,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 32),
-         
+          
           // Features list
           GlassCard(
             child: Column(
@@ -198,7 +199,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ),
     );
   }
- 
+  
   Widget _buildPermissionsPage() {
     return Padding(
       padding: const EdgeInsets.all(24),
@@ -211,14 +212,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             color: AppConstants.accentColor,
           ),
           const SizedBox(height: 32),
-         
+          
           Text(
             '🎤 Microphone Access',
             style: Theme.of(context).textTheme.headlineLarge,
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 16),
-         
+          
           Text(
             'Wittly needs microphone access to listen to conversations and provide real-time AI assistance.',
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
@@ -227,7 +228,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 32),
-         
+          
           GlassCard(
             child: Column(
               children: [
@@ -242,7 +243,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ),
           const SizedBox(height: 32),
-         
+          
           GlowButton(
             text: 'Grant Microphone Access',
             width: double.infinity,
@@ -257,7 +258,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ),
     );
   }
- 
+  
   Widget _buildModesPage() {
     return Padding(
       padding: const EdgeInsets.all(24),
@@ -270,14 +271,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 16),
-         
+          
           Text(
             'Choose your superpower for any situation:',
             style: Theme.of(context).textTheme.bodyLarge,
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 32),
-         
+          
           // Mode examples
           GlassCard(
             child: Column(
@@ -314,7 +315,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ),
     );
   }
- 
+  
   Widget _buildQuickStartPage() {
     return Padding(
       padding: const EdgeInsets.all(24),
@@ -327,14 +328,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 16),
-         
+          
           Text(
             'Here\'s how to get your competitive edge:',
             style: Theme.of(context).textTheme.bodyLarge,
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 32),
-         
+          
           GlassCard(
             child: Column(
               children: [
@@ -349,7 +350,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ),
           const SizedBox(height: 32),
-         
+          
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
@@ -385,7 +386,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ),
     );
   }
- 
+  
   Widget _buildFeatureItem(String icon, String text) {
     return Row(
       children: [
@@ -403,7 +404,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ],
     );
   }
- 
+  
   Widget _buildPermissionItem(String icon, String text) {
     return Row(
       children: [
@@ -421,7 +422,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ],
     );
   }
- 
+  
   Widget _buildModeDescription(String icon, String text) {
     return Row(
       children: [
@@ -439,7 +440,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ],
     );
   }
- 
+  
   Widget _buildQuickStartStep(String number, String text) {
     return Row(
       children: [
@@ -475,4 +476,3 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 }
- 
